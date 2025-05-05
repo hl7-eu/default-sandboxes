@@ -8,13 +8,13 @@ services:
       driver: "json-file"
       options:
         tag: "{{.ImageName}}|{{.Name}}|{{.ImageFullID}}|{{.FullID}}"
-    container_name: vanilla_sandbox
+    container_name: pcsp-sandbox
     ports:
-      - 8787:8080
-    deploy:
-      resources:
-        limits:
-          cpus: '1'   # Limits the container to use only 50% of a single CPU
+      - 9797:8080
+  #  deploy:
+   #   resources:
+    #    limits:
+     #     cpus: '1'   # Limits the container to use only 50% of a single CPU
     environment:
      SPRING_CONFIG_LOCATION: 'file:///data/hapi/application.yml'
     volumes:
@@ -27,7 +27,7 @@ services:
   db:
     image: postgres:latest
     restart: always
-    container_name: db_vanilla_sandbox
+    container_name: db_pcsp_sandbox
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
