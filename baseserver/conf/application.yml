@@ -90,7 +90,7 @@ hapi:
       home:
         name: Local Tester
 #        server_address: "http://localhost/fhir"
-        server_address: http://sandbox.hl7europe.eu/base/fhir
+        server_address: https://sandbox.hl7europe.eu/base/fhir
         refuse_to_fetch_third_party_urls: false
         fhir_version: R5
 
