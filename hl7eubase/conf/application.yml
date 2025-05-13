@@ -72,6 +72,17 @@ hapi:
         version: 1.0.0-comment
         package-url: https://profiles.ihe.net/PHARM/MPD/1.0.0-comment/package.tgz
         install-mode: STORE_AND_INSTALL
+     # eu_extensions:
+     #   name: hl7.fhir.eu.extensions
+     #   version: 0.1.1-ballot
+     #   package-url: http://hl7.eu/fhir/extensions/ImplementationGuide/hl7.fhir.eu.extensions
+     #   install-mode: STORE_AND_INSTALL
+     # lab:
+     #   name: hl7.fhir.eu.laboratory
+     #   version: 0.1.1
+     #   package-url: http://hl7.eu/fhir/laboratory/ImplementationGuide/hl7.fhir.eu.laboratory
+     #   install-mode: STORE_AND_INSTAL
+        
     remote_terminology_service:
       all:
         system: '*'
