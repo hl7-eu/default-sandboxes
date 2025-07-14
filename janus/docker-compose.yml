@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+
+  fhir-server:
+#    image: hapiproject/hapi:latest
+
+    build: ./hapi-fhir-jpaserver-starter
+    container_name: hapi-fhir-jpaserver-start
+    restart: on-failure
+    environment:
+      SPRING_DATASOURCE_URL: "jdbc:postgresql://hapi-fhir-postgres:5432/hapi"
+      SPRING_DATASOURCE_USERNAME: "admin"
+      SPRING_DATASOURCE_PASSWORD: "admin"
+      SPRING_DATASOURCE_DRIVERCLASSNAME: "org.postgresql.Driver"
+      SPRING_CONFIG_ADDITIONAL_LOCATION: "/profiles/"
+      SPRING_PROFILES_ACTIVE: "qe"
+    volumes:
+      - ./profiles:/profiles
+    ports:
+      - "8484:8080"
+  hapi-fhir-postgres:
+    image: postgres:15-alpine
+    container_name: postgres-data
+    restart: always
+    environment:
+      POSTGRES_DB: "hapi"
+      POSTGRES_USER: "admin"
+      POSTGRES_PASSWORD: "admin"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
+  janus:
+    image: docker.registry.fyrstain.com/socle/janus:hl7
+    environment:
+      REACT_APP_QUESTIONNAIRE_URL: 'http://hapi:8484/fhir'
+      REACT_APP_FHIR_URL: 'https://demonstrator.ovh.fyrstain.com/orchestrator'
+      PUBLIC_URL: '/questionnaire'
+    ports:
+      - "3002:3000"
