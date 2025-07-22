@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   fhir-server:
     image: hapiproject/hapi:latest
@@ -35,3 +33,10 @@ services:
       - POSTGRES_ROOT_PASSWORD=admin
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
+
+  ember:
+    image: jkiddo/ember:latest
+    environment:
+      - location=https://hl7.eu/fhir/ig/pcsp/package.tgz
+      - serverBase=http://fhir-server:8080/pcsp/fhir
+      - usePUT=true
