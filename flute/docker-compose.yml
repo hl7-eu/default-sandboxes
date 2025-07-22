@@ -33,3 +33,10 @@ services:
       - POSTGRES_ROOT_PASSWORD=admin
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
+
+  ember-flute:
+    image: jkiddo/ember:latest
+    environment:
+      - location=https://build.fhir.org/ig/hl7-eu/flute/package.tgz
+      - serverBase=http://fhir-server:8080/flute/fhir
+      - usePUT=true
