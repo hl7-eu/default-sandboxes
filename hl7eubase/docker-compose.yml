@@ -36,3 +36,32 @@ services:
       - POSTGRES_ROOT_PASSWORD=admin
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=admin
+
+  ember-ext:
+    image: jkiddo/ember:latest
+    environment:
+      - location=https://hl7.eu/fhir/extensions/package.tgz
+      - serverBase=http://fhir-server:8080/eubase/fhir
+      - usePUT=true
+
+  ember-base:
+    image: jkiddo/ember:latest
+    environment:
+      - location=https://hl7.eu/fhir/base-r5/package.tgz
+      - serverBase=http://fhir-server:8080/eubase/fhir
+      - usePUT=true
+
+
+  ember-imaging:
+    image: jkiddo/ember:latest
+    environment:
+      - location=https://hl7.eu/fhir/imaging-r5/package.tgz
+      - serverBase=http://fhir-server:8080/eubase/fhir
+      - usePUT=true
+
+  ember-mpd:
+    image: jkiddo/ember:latest
+    environment:
+      - location=https://hl7.eu/fhir/mpd-r5/package.tgz
+      - serverBase=http://fhir-server:8080/eubase/fhir
+      - usePUT=true

@@ -2,9 +2,8 @@ version: "3.8"
 services:
 
   fhir-server:
-#    image: hapiproject/hapi:latest
-
-    build: ./hapi-fhir-jpaserver-starter
+    image: ghcr.io/hl7-eu/hapi-questionnaire:latest
+#    build: ./hapi-fhir-jpaserver-starter
     container_name: hapi-fhir-jpaserver-start
     restart: on-failure
     environment:
