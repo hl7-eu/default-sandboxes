@@ -1,5 +1,10 @@
+server:
+  servlet:
+    context-path: /questionnaire-server
+
 hapi:
   fhir:
+    server_address: https://sandbox.hl7europe.eu/questionnaire-server/fhir
     fhir_version: R5
     supported_resource_types:
       - ActivityDefinition
@@ -19,3 +24,17 @@ hapi:
     ### Flag is false by default, can be passed as command line argument to override.
     cr:
       enabled: true
+
+
+    tester:
+      home:
+        name: Local Tester
+        server_address: https://sandbox.hl7europe.eu/questionnaire-server/fhir
+        refuse_to_fetch_third_party_urls: false
+        fhir_version: R5
+
+      global:
+        name: Global Tester
+        server_address: "https://hapi.fhir.org/baseR5"
+        refuse_to_fetch_third_party_urls: false
+        fhir_version: R5

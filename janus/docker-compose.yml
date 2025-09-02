@@ -1,8 +1,9 @@
-version: "3.8"
+#version: "3.8"
 services:
 
   fhir-server:
-    image: ghcr.io/hl7-eu/hapi-questionnaire:latest
+    image: ghcr.io/hl7-eu/hapi-jpa-starter:questionnaire
+#    image: ghcr.io/hl7-eu/hapi-questionnaire:latest
 #    build: ./hapi-fhir-jpaserver-starter
     container_name: hapi-fhir-jpaserver-start
     restart: on-failure
@@ -30,7 +31,8 @@ services:
   janus:
     image: docker.registry.fyrstain.com/socle/janus:hl7
     environment:
-      REACT_APP_QUESTIONNAIRE_URL: 'http://hapi:8484/fhir'
+#      REACT_APP_QUESTIONNAIRE_URL: 'http://fhir-server:8080/fhir'
+      REACT_APP_QUESTIONNAIRE_URL: 'https://sandbox.hl7europe.eu/questionnaire-server/fhir'
       REACT_APP_FHIR_URL: 'https://demonstrator.ovh.fyrstain.com/orchestrator'
       PUBLIC_URL: '/questionnaire'
     ports:
