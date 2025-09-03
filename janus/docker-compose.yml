@@ -5,7 +5,7 @@ services:
     image: ghcr.io/hl7-eu/hapi-jpa-starter:questionnaire
 #    image: ghcr.io/hl7-eu/hapi-questionnaire:latest
 #    build: ./hapi-fhir-jpaserver-starter
-    container_name: hapi-fhir-jpaserver-start
+#    container_name: hapi-fhir-jpaserver-start
     restart: on-failure
     environment:
       SPRING_DATASOURCE_URL: "jdbc:postgresql://hapi-fhir-postgres:5432/hapi"
@@ -33,6 +33,8 @@ services:
     environment:
 #      REACT_APP_QUESTIONNAIRE_URL: 'http://fhir-server:8080/fhir'
       REACT_APP_QUESTIONNAIRE_URL: 'https://sandbox.hl7europe.eu/questionnaire-server/fhir'
+#      REACT_APP_QUESTIONNAIRE_URL: 'https://demonstrator.ovh.fyrstain.com/orchestrator'
+
       REACT_APP_FHIR_URL: 'https://demonstrator.ovh.fyrstain.com/orchestrator'
       PUBLIC_URL: '/questionnaire'
     ports:
