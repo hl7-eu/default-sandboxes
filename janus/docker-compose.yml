@@ -29,7 +29,8 @@ services:
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
   janus:
-    image: docker.registry.fyrstain.com/socle/janus:hl7
+    image: docker.registry.fyrstain.com/socle/janus:open
+#docker.registry.fyrstain.com/socle/janus:open
     environment:
 #      REACT_APP_QUESTIONNAIRE_URL: 'http://fhir-server:8080/fhir'
       REACT_APP_QUESTIONNAIRE_URL: 'https://sandbox.hl7europe.eu/questionnaire-server/fhir'
